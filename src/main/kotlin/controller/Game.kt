@@ -113,6 +113,7 @@ class Game {
             ).terrain.description + "."
         )
 
+
         return description.toString()
     }
 
