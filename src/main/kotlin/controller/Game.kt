@@ -14,6 +14,7 @@ class Game {
 
     fun run() {
         do {
+            //asdada
             possibleCommands.clear()
             setPossibleCommands(hero)
             println("-------------------------");
