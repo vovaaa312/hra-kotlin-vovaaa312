@@ -7,20 +7,47 @@ class Game {
     private val width: Int = 20;
     private val height: Int = 10;
     private val numForests: Int = 7;
-    private var gamePlan = GamePlan(width, height, numForests);
+    private val enemiesCount = 5;
     private var command = "";
-    private var hero = Hero(position = gamePlan.generateRandomPosition());
     private var possibleCommands = arrayListOf<String>()
+
+    val enemies = arrayListOf<GameObject>()
+    var gameObjects = arrayListOf<GameObject>()
+
+    private var gamePlan = GamePlan(width, height, numForests);
+    private var hero: Hero
+
+    init {
+        hero = Hero(position = gamePlan.generateRandomPosition());
+        gameObjects.add(hero);
+        generateEnemies()
+    }
+
+    fun generateEnemies() {
+        var enemy: Enemy
+        repeat(enemiesCount) {
+            enemy = generateEnemy();
+            gameObjects.add(enemy);
+        }
+    }
+
+    fun generateEnemy(): Enemy {
+        return Enemy(
+            name = "Skeleton", position = gamePlan.generateFreeRandomPosition(),
+            health = 10.0,
+            attack = 5.0,
+            defense = 0.5
+        )
+    }
 
     fun run() {
         do {
-            //asdada
             possibleCommands.clear()
             setPossibleCommands(hero)
             println("-------------------------");
             println(getSurroundingDescription())
             command = readCommand()
-            gamePlan.showHero(hero)
+            // gamePlan.showHero(hero)
             println(runCommand(command))
             if (command.uppercase() == "KONEC") {
                 println("Konec hry")
@@ -40,10 +67,8 @@ class Game {
 
         }
 
-         return ""
+        return ""
     }
-
-
 
 
     fun readCommand(): String {
@@ -113,7 +138,6 @@ class Game {
                 Position(hero.position, Direction.WEST)
             ).terrain.description + "."
         )
-
 
         return description.toString()
     }

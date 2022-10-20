@@ -26,19 +26,12 @@ data class GamePlan(val width: Int = 20, val height: Int = 10, val numForest: In
         gamePlan[bridgePosition.y][bridgePosition.x] = GameField(Terrain.BRIDGE)
     }
 
-    public fun showHero(hero: Hero) {
-        var heroPos: Position = hero.position;
-
-
-        gamePlan[heroPos.y][heroPos.x] = GameField(Terrain.HERO)
-    }
+//    public fun showHero(hero: Hero) {
+//        var heroPos: Position = hero.position;
+//        gamePlan[heroPos.y][heroPos.x] = GameField(Terrain.HERO)
+//    }
 
     private fun generateForest() {
-
-//        for (i in 1..height - 2) {
-//            gamePlan[i][forestPosition.x] = GameField(Terrain.FOREST)
-//        }
-
         for (i in 1..area() / 10) {
             val forestPosition = generateRandomPosition()
             gamePlan[forestPosition.y][forestPosition.x] = GameField(Terrain.FOREST)
@@ -80,5 +73,11 @@ data class GamePlan(val width: Int = 20, val height: Int = 10, val numForest: In
         }
     }
 
-
+    fun generateFreeRandomPosition(gameObjects: ArrayList<GameObject>) : Position {
+        var randomPosition : Position
+        do {
+            randomPosition = generateRandomPosition()
+        } while (! randomPosition.isFree(gameObjects) )
+        return randomPosition
+    }
 }

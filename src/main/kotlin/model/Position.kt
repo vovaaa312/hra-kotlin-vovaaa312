@@ -5,4 +5,12 @@ data class Position(var x: Int, var y: Int) {
         this.x += + direction.relativeX
         this.y += + direction.relativeY
     }
+    fun isFree (gameObjects: ArrayList<GameObject>): Boolean {
+        for (gameObject in gameObjects) {
+            if (gameObject.position == this) {
+                return false
+            }
+        }
+        return true
+    }
 }
