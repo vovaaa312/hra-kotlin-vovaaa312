@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="97d0feb0-7e37-47ea-96cc-f9b3d5752826" name="Changes" comment="" />
+    <list default="true" id="97d0feb0-7e37-47ea-96cc-f9b3d5752826" name="Changes" comment="nakonec vsechno je spravne.&#10;posledni zmeny: Character, Hero, Enemy, GamePlan">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Entities/Hero.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/controller/Game.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/controller/Game.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/GameField.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/model/GameField.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/GamePlan.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/model/GamePlan.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/Terrain.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/model/Terrain.kt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,18 +20,41 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="2FISDWKwaOq6WRs1Mzg49x2zvPm" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="Character" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MainKt" />
+      <module name="Game" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Kotlin.MainKt" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -31,6 +64,21 @@
       <option name="presentableId" value="Default" />
       <updated>1664177989540</updated>
     </task>
+    <task id="LOCAL-00001" summary="kashrfrwkjf">
+      <created>1666255774558</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1666255774558</updated>
+    </task>
+    <task id="LOCAL-00002" summary="nakonec vsechno je spravne.&#10;posledni zmeny: Character, Hero, Enemy, GamePlan">
+      <created>1666255947899</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1666255947899</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -43,5 +91,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="kashrfrwkjf" />
+    <MESSAGE value="nakonec vsechno je spravne.&#10;posledni zmeny: Character, Hero, Enemy, GamePlan" />
+    <option name="LAST_COMMIT_MESSAGE" value="nakonec vsechno je spravne.&#10;posledni zmeny: Character, Hero, Enemy, GamePlan" />
   </component>
 </project>

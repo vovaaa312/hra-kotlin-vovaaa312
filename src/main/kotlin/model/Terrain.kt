@@ -6,5 +6,6 @@ enum class Terrain (val description: String, val terrainChar: Char){
     FOREST("les", '|'),
     RIVER("reka",'*'),
     BRIDGE("most", '='),
-    HERO("hrdina", 'H');
+    HERO("hrdina", 'H'),
+    ENEMY("nepritel", 'X');
 }

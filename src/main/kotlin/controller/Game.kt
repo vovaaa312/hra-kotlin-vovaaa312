@@ -1,6 +1,7 @@
 package controller
 
-import Entities.Hero
+import Character.Enemy
+import Character.Hero
 import model.*
 
 class Game {
@@ -18,26 +19,26 @@ class Game {
     private var hero: Hero
 
     init {
-        hero = Hero(position = gamePlan.generateRandomPosition());
+        hero = Hero(position = gamePlan.generateRandomPositionOnMeadow());
         gameObjects.add(hero);
         generateEnemies()
     }
 
-    fun generateEnemies() {
-        var enemy: Enemy
-        repeat(enemiesCount) {
-            enemy = generateEnemy();
-            gameObjects.add(enemy);
+    private fun generateEnemies() {
+        var enemy : Enemy
+        repeat (enemiesCount) {
+            enemy = generateEnemy()
+            enemies.add(enemy)
+            gameObjects.add(enemy)
         }
     }
 
-    fun generateEnemy(): Enemy {
-        return Enemy(
-            name = "Skeleton", position = gamePlan.generateFreeRandomPosition(),
+    private fun generateEnemy(): Enemy {
+        return Enemy(name="Skeleton",
+            position = gamePlan.generateFreeRandomPositionOnMeadow(gameObjects),
             health = 10.0,
             attack = 5.0,
-            defense = 0.5
-        )
+            defense = 0.5)
     }
 
     fun run() {

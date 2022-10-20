@@ -1,7 +1,5 @@
 package model
 
-import Entities.Hero
-import controller.Game
 import kotlin.random.Random
 
 data class GamePlan(val width: Int = 20, val height: Int = 10, val numForest: Int = 4) {
@@ -18,7 +16,7 @@ data class GamePlan(val width: Int = 20, val height: Int = 10, val numForest: In
     }
 
     private fun generateRiver() {
-        val bridgePosition = generateRandomPosition()
+        val bridgePosition = generateRandomPositionOnMeadow()
         for (i in 1..height - 2) {
 
             gamePlan[i][bridgePosition.x] = GameField(Terrain.RIVER)
@@ -33,7 +31,7 @@ data class GamePlan(val width: Int = 20, val height: Int = 10, val numForest: In
 
     private fun generateForest() {
         for (i in 1..area() / 10) {
-            val forestPosition = generateRandomPosition()
+            val forestPosition = generateRandomPositionOnMeadow()
             gamePlan[forestPosition.y][forestPosition.x] = GameField(Terrain.FOREST)
         }
     }
@@ -42,7 +40,7 @@ data class GamePlan(val width: Int = 20, val height: Int = 10, val numForest: In
         return height * width;
     }
 
-    fun generateRandomPosition(): Position {
+    fun generateRandomPositionOnMeadow(): Position {
         return Position(generateRandomCoord(width), generateRandomCoord(height))
     }
 
@@ -73,10 +71,10 @@ data class GamePlan(val width: Int = 20, val height: Int = 10, val numForest: In
         }
     }
 
-    fun generateFreeRandomPosition(gameObjects: ArrayList<GameObject>) : Position {
+    fun generateFreeRandomPositionOnMeadow(gameObjects: ArrayList<GameObject>) : Position {
         var randomPosition : Position
         do {
-            randomPosition = generateRandomPosition()
+            randomPosition = generateRandomPositionOnMeadow()
         } while (! randomPosition.isFree(gameObjects) )
         return randomPosition
     }
