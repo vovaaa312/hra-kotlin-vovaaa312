@@ -21,6 +21,15 @@ abstract class Character : GameObject() {
        // description.append("Uzdravování: " + "%.2f".format(healing) + "\n")
         return description.toString()
     }
+
+    open fun attack (enemy: Character) : String {
+        var realAttack = attack - enemy.defense
+        if (realAttack < 0) realAttack=0.0
+        enemy.health -= realAttack
+
+        if (enemy.isDead()) return "${enemy.name} je mrtvý."
+        return "$name zaútočil silou " + "%.2f".format(realAttack) +"."
+    }
     fun go (direction: Direction) : String {
         position.x += direction.relativeX
         position.y += direction.relativeY

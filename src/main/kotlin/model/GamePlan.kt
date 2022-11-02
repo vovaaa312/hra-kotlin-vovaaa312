@@ -1,5 +1,7 @@
 package model
 
+import Character.Enemy
+import Character.Hero
 import kotlin.random.Random
 
 data class GamePlan(val width: Int = 20, val height: Int = 10, val numForest: Int = 4) {
@@ -24,10 +26,6 @@ data class GamePlan(val width: Int = 20, val height: Int = 10, val numForest: In
         gamePlan[bridgePosition.y][bridgePosition.x] = GameField(Terrain.BRIDGE)
     }
 
-//    public fun showHero(hero: Hero) {
-//        var heroPos: Position = hero.position;
-//        gamePlan[heroPos.y][heroPos.x] = GameField(Terrain.HERO)
-//    }
 
     private fun generateForest() {
         for (i in 1..area() / 10) {
@@ -62,20 +60,38 @@ data class GamePlan(val width: Int = 20, val height: Int = 10, val numForest: In
         return gamePlan[position.y][position.x]
     }
 
-    fun map() {
+    fun map(hero: Hero, enemies: ArrayList<GameObject>) {
+        var enemy: Enemy? = null
+
         for (i in 0 until height) {
+
+
             for (j in 0 until width) {
-                print(gamePlan[i][j].terrain.terrainChar + " ")
+                if (j < enemies.size) {
+                    enemy = enemies[j] as Enemy
+                }
+
+                if (Position(j, i) == Position(hero.position.x, hero.position.y)) {
+                    print(gamePlan[i][j].terrain.terrainChar + "H")
+                }else  if (enemy != null &&Position(j, i) == Position(enemy.position.x, enemy.position.y)) {
+                    print(gamePlan[i][j].terrain.terrainChar + "X")
+                }else {
+                    print(gamePlan[i][j].terrain.terrainChar + " ")
+                }
+
             }
             println()
         }
+
     }
 
-    fun generateFreeRandomPositionOnMeadow(gameObjects: ArrayList<GameObject>) : Position {
-        var randomPosition : Position
+    fun generateFreeRandomPositionOnMeadow(gameObjects: ArrayList<GameObject>): Position {
+        var randomPosition: Position
         do {
             randomPosition = generateRandomPositionOnMeadow()
-        } while (! randomPosition.isFree(gameObjects) )
+        } while (!randomPosition.isFree(gameObjects))
         return randomPosition
     }
+
+
 }

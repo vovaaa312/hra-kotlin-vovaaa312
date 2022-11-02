@@ -4,13 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97d0feb0-7e37-47ea-96cc-f9b3d5752826" name="Changes" comment="nakonec vsechno je spravne.&#10;posledni zmeny: Character, Hero, Enemy, GamePlan">
+    <list default="true" id="97d0feb0-7e37-47ea-96cc-f9b3d5752826" name="Changes" comment="opravy kodu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Entities/Hero.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Character/Character.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Character/Character.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Character/Hero.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Character/Hero.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/controller/Game.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/controller/Game.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/GameField.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/model/GameField.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/Direction.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/model/Direction.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/GameObject.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/model/GameObject.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/GamePlan.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/model/GamePlan.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/Terrain.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/model/Terrain.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/Position.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/model/Position.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,12 +32,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "D:/учёба/BMTA Mobilni technologie a aplikace/hra-kotlin-vovaaa312"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
       <recent name="Character" />
@@ -78,7 +81,21 @@
       <option name="project" value="LOCAL" />
       <updated>1666255947899</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="opravy kodu">
+      <created>1666258813145</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1666258813145</updated>
+    </task>
+    <task id="LOCAL-00004" summary="opravy kodu">
+      <created>1666258825898</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1666258825898</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -95,6 +112,18 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="kashrfrwkjf" />
     <MESSAGE value="nakonec vsechno je spravne.&#10;posledni zmeny: Character, Hero, Enemy, GamePlan" />
-    <option name="LAST_COMMIT_MESSAGE" value="nakonec vsechno je spravne.&#10;posledni zmeny: Character, Hero, Enemy, GamePlan" />
+    <MESSAGE value="opravy kodu" />
+    <option name="LAST_COMMIT_MESSAGE" value="opravy kodu" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/model/GamePlan.kt</url>
+          <line>62</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

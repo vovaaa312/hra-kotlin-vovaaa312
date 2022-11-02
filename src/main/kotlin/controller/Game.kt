@@ -11,6 +11,7 @@ class Game {
     private val enemiesCount = 5;
     private var command = "";
     private var possibleCommands = arrayListOf<String>()
+    private var score : Int = 0
 
     val enemies = arrayListOf<GameObject>()
     var gameObjects = arrayListOf<GameObject>()
@@ -20,8 +21,21 @@ class Game {
 
     init {
         hero = Hero(position = gamePlan.generateRandomPositionOnMeadow());
+        gamePlan.getGameField(hero.position)
         gameObjects.add(hero);
+
         generateEnemies()
+    }
+
+    fun getEnemyOnGameField (position: Position, gameObjects: ArrayList<GameObject>) : Enemy? {
+        for (obj in gameObjects ) {
+            if (obj is Enemy) {
+                if (obj.position == position) {
+                    return obj
+                }
+            }
+        }
+        return null
     }
 
     private fun generateEnemies() {
@@ -42,35 +56,86 @@ class Game {
     }
 
     fun run() {
+        var message = ""
         do {
             possibleCommands.clear()
             setPossibleCommands(hero)
             println("-------------------------");
             println(getSurroundingDescription())
             command = readCommand()
-            // gamePlan.showHero(hero)
             println(runCommand(command))
-            if (command.uppercase() == "KONEC") {
+            println (enemyAttack())
+            gamePlan.map(hero, enemies)
+            message = isGameFinished()
+            if (command.uppercase() == "KONEC" ) {
                 println("Konec hry")
+                break
+            }
+            if (message.isNotEmpty()) {
+                println (message)
                 break
             }
         } while (true)
     }
 
-    fun runCommand(command: String): String {
-        when (command) {
-            "stav" -> return (hero.toString())
-            "mapa" -> gamePlan.map()
-            Direction.NORTH.command -> return hero.go(Direction.NORTH)
-            Direction.EAST.command -> return hero.go(Direction.EAST)
-            Direction.SOUTH.command -> return hero.go(Direction.SOUTH)
-            Direction.WEST.command -> return hero.go(Direction.WEST)
-
+    fun checkCommand(command: String):Boolean{
+        for (i in possibleCommands) {
+            if (command == i) {
+                return true
+            }
         }
+        println("Tento příkaz není k dispozici")
+        return false
+    }
+    fun runCommand(command: String): String {
+        score++
+        val enemy = getEnemyOnGameField(hero.position, enemies)
+        if(checkCommand(command)){
+            when (command) {
+                "utok" -> return hero.attack(enemy!!)
+                "stav" -> return (hero.toString())
+                "mapa" -> gamePlan.map(hero,enemies)
+                Direction.NORTH.command -> return hero.go(Direction.NORTH)
+                Direction.EAST.command -> return hero.go(Direction.EAST)
+                Direction.SOUTH.command -> return hero.go(Direction.SOUTH)
+                Direction.WEST.command -> return hero.go(Direction.WEST)
+
+                Direction.SOUTHWEST.command -> return hero.go(Direction.SOUTHWEST)
+                Direction.SOUTHEAST.command -> return hero.go(Direction.SOUTHEAST)
+
+                Direction.NORTHEAST.command -> return hero.go(Direction.NORTHEAST)
+                Direction.NORTHWEST.command -> return hero.go(Direction.NORTHWEST)
+            }
+        }
+
 
         return ""
     }
 
+    fun enemyAttack() : String {
+        val enemy = getEnemyOnGameField(hero.position, enemies)
+
+        if (enemy is Enemy) {
+            if (!enemy.isDead()) {
+                return(enemy.attack(hero))
+            }
+        }
+        return ""
+    }
+
+    fun allEnemiesDead() : Boolean {
+        for (enemy in enemies) {
+            if (enemy is Enemy && ! enemy.isDead()) return false
+        }
+        return true
+    }
+
+    fun isGameFinished(): String {
+        if (hero.isDead()) return "Jsi mrtvý."
+        if (allEnemiesDead()) return "Všichni nepřátelé jsou mrtví. Vyhrál jsi. Potřeboval jsi $score tahů."
+        if (command == "konec") return "Konec hry."
+        return ""
+    }
 
     fun readCommand(): String {
         println("Mozne prikazy: $possibleCommands");
@@ -79,6 +144,10 @@ class Game {
     }
 
     fun setPossibleCommands(hero: Hero) {
+        val enemy = getEnemyOnGameField(hero.position, enemies)
+        if (enemy != null && !enemy.isDead()) possibleCommands.add("utok");
+
+
         if (gamePlan.getGameField(
                 Position(
                     hero.position.x + Direction.NORTH.relativeX,
@@ -112,6 +181,42 @@ class Game {
                 .isWalkable()
         ) possibleCommands.add(Direction.WEST.command)
 
+        if (gamePlan.getGameField(
+                Position(
+                    hero.position.x + Direction.SOUTHWEST.relativeX,
+                    hero.position.y + Direction.SOUTHWEST.relativeY
+                )
+            )
+                .isWalkable()
+        ) possibleCommands.add(Direction.SOUTHWEST.command)
+
+        if (gamePlan.getGameField(
+                Position(
+                    hero.position.x + Direction.SOUTHEAST.relativeX,
+                    hero.position.y + Direction.SOUTHEAST.relativeY
+                )
+            )
+                .isWalkable()
+        ) possibleCommands.add(Direction.SOUTHEAST.command)
+
+        if (gamePlan.getGameField(
+                Position(
+                    hero.position.x + Direction.NORTHEAST.relativeX,
+                    hero.position.y + Direction.NORTHEAST.relativeY
+                )
+            )
+                .isWalkable()
+        ) possibleCommands.add(Direction.NORTHEAST.command)
+
+        if (gamePlan.getGameField(
+                Position(
+                    hero.position.x + Direction.NORTHWEST.relativeX,
+                    hero.position.y + Direction.NORTHWEST.relativeY
+                )
+            )
+                .isWalkable()
+        ) possibleCommands.add(Direction.NORTHWEST.command)
+
         possibleCommands.add("stav")
         possibleCommands.add("mapa")
         possibleCommands.add("konec")
@@ -119,6 +224,9 @@ class Game {
 
     fun getSurroundingDescription(): String {
         val description = java.lang.StringBuilder("")
+
+        val enemy = getEnemyOnGameField(hero.position, enemies)
+        if (enemy != null && !enemy.isDead()) description.append("utok");
         description.append(
             "Na severu je " + gamePlan.getGameField(
                 Position(hero.position, Direction.NORTH)
@@ -139,7 +247,6 @@ class Game {
                 Position(hero.position, Direction.WEST)
             ).terrain.description + "."
         )
-
         return description.toString()
     }
 

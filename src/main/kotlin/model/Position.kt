@@ -1,5 +1,7 @@
 package model
 
+import Character.Character
+
 data class Position(var x: Int, var y: Int) {
     constructor(position: Position, direction: Direction) : this(position.x, position.y) {
         this.x += + direction.relativeX
@@ -13,4 +15,12 @@ data class Position(var x: Int, var y: Int) {
         }
         return true
     }
+
+    fun isFree (character: Character): Boolean {
+            if (character.position == this) {
+                return false
+            }
+        return true
+    }
+
 }
