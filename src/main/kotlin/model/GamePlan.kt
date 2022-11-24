@@ -60,25 +60,11 @@ data class GamePlan(val width: Int = 20, val height: Int = 10, val numForest: In
         return gamePlan[position.y][position.x]
     }
 
-    fun map(hero: Hero, enemies: ArrayList<GameObject>) {
-        var enemy: Enemy? = null
-
-        for (i in 0 until height) {
-
-
-            for (j in 0 until width) {
-                if (j < enemies.size) {
-                    enemy = enemies[j] as Enemy
-                }
-
-                if (Position(j, i) == Position(hero.position.x, hero.position.y)) {
-                    print(gamePlan[i][j].terrain.terrainChar + "H")
-                }else  if (enemy != null &&Position(j, i) == Position(enemy.position.x, enemy.position.y)) {
-                    print(gamePlan[i][j].terrain.terrainChar + "X")
-                }else {
-                    print(gamePlan[i][j].terrain.terrainChar + " ")
-                }
-
+    fun map(hero: Hero) {
+        for(i in 0 until height){
+            for (j in 0 until width){
+                if(Position(i,j) == Position(hero.position.x, hero.position.y)) print(" H")
+                else print(gamePlan[i][j].terrain.terrainChar + " ")
             }
             println()
         }

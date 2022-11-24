@@ -7,6 +7,8 @@ abstract class Character : GameObject() {
     open var health: Double = 100.0
     open var attack: Double = 1.2
     open var defense: Double = 1.0
+
+    var kills: Int = 0
     fun isDead (): Boolean {
         return (health < 0.00001)
     }
@@ -19,6 +21,7 @@ abstract class Character : GameObject() {
         description.append("Útok:        " + "%.2f".format(attack) + "\n")
         description.append("Obrana:      " + "%.2f".format(defense) + "\n")
        // description.append("Uzdravování: " + "%.2f".format(healing) + "\n")
+        description.append("Zabití:      $kills \n")
         return description.toString()
     }
 

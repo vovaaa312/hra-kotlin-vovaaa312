@@ -6,7 +6,7 @@ import java.lang.StringBuilder
 data class Hero(
     override var name: String = "Hrdina",
     override var position: Position,
-    var kills: Int = 0
+   // var kills: Int = 0
 ) : Character() {
     var healing: Double = 0.5
 

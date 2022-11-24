@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97d0feb0-7e37-47ea-96cc-f9b3d5752826" name="Changes" comment="opravy kodu">
+    <list default="true" id="97d0feb0-7e37-47ea-96cc-f9b3d5752826" name="Changes" comment="kontrola vstupu, vice smeru, zobrazeni nepratele(nedokonceno)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Character/Character.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Character/Character.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Character/Hero.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Character/Hero.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/controller/Game.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/controller/Game.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/Direction.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/model/Direction.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/GameObject.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/model/GameObject.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/GamePlan.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/model/GamePlan.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/Position.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/model/Position.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,13 +28,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "D:/учёба/BMTA Mobilni technologie a aplikace/hra-kotlin-vovaaa312"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/учёба/BMTA Mobilni technologie a aplikace/hra-kotlin-vovaaa312&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
       <recent name="Character" />
@@ -95,7 +91,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666258825898</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="kontrola vstupu, vice smeru, zobrazeni nepratele(nedokonceno)">
+      <created>1667417035016</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1667417035016</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -113,17 +116,7 @@
     <MESSAGE value="kashrfrwkjf" />
     <MESSAGE value="nakonec vsechno je spravne.&#10;posledni zmeny: Character, Hero, Enemy, GamePlan" />
     <MESSAGE value="opravy kodu" />
-    <option name="LAST_COMMIT_MESSAGE" value="opravy kodu" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/model/GamePlan.kt</url>
-          <line>62</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="kontrola vstupu, vice smeru, zobrazeni nepratele(nedokonceno)" />
+    <option name="LAST_COMMIT_MESSAGE" value="kontrola vstupu, vice smeru, zobrazeni nepratele(nedokonceno)" />
   </component>
 </project>

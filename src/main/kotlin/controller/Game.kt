@@ -65,7 +65,7 @@ class Game {
             command = readCommand()
             println(runCommand(command))
             println (enemyAttack())
-            gamePlan.map(hero, enemies)
+           // gamePlan.map(hero)
             message = isGameFinished()
             if (command.uppercase() == "KONEC" ) {
                 println("Konec hry")
@@ -94,7 +94,7 @@ class Game {
             when (command) {
                 "utok" -> return hero.attack(enemy!!)
                 "stav" -> return (hero.toString())
-                "mapa" -> gamePlan.map(hero,enemies)
+                "mapa" -> gamePlan.map(hero)
                 Direction.NORTH.command -> return hero.go(Direction.NORTH)
                 Direction.EAST.command -> return hero.go(Direction.EAST)
                 Direction.SOUTH.command -> return hero.go(Direction.SOUTH)
